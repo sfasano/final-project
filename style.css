@@ -1,0 +1,28 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+#original-list {
+  font-size: 12px;
+  width: 250px;
+  float: left;
+}
+
+#final-list {
+  font-size: 12px;
+  width: 250px;
+  float: left;
+  display: none;
+}
+
+#split {
+
+}
+
+#sort {
+
+}
+
+#merge {
+  
+}
