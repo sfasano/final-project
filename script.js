@@ -1,7 +1,69 @@
 $(document).ready(function(){
 
+// a function to split the array into two
+function splitArr() 
+{
+
+}
+
+
+// a function to sort an array of 2 or less elements
+function sortArr()
+{
+
+}
+
+
+// a function to merge two sorted arrays together
+function merge()
+{
+
+}
+
+
+// binding each of those functions to a button
+$('#split').on('click', splitArr());
+$('#sort').on('click', sortArr());
+$('#merge').on('click', merge());
+
+
+// create an array from the ids of the original list
+  // store that in 'originalArray'
+  // 'workingArray' becomes 'originalArray'
+
+// user splits the 'workingArray'
+  // adds the second half as the first element in an 'onDeck' array, with attribute firstHalf = FALSE
+  // 'workingArray' becomes an array of the first half, with attribute firstHalf = TRUE
+  // animates the appearance of 'workingArray' in working-1 div
+
+// analyze whether 'workingArray' is 2 or less elements
+  // if so run sort on it and display the result in working-2 div
+    // if 'toBeMerged' is empty, 'toBeMerged' becomes 'workingArray'
+      // 'workingArray' becomes the last element in 'onDeck'
+      // .. recursively analyze for 2 or less elements
+    // else run merge on 'workingArray' and 'toBeMerged'
+      // return value as an element in 'sortedStaged'
+      // set 'toBeMerged' to NULL
+      // 'workingArray' becomes the last element in 'onDeck'
+  // else run split on it and display the result in working-2 div
+    // add the second half as another element in the onDeck array
+    // .. recursive until sort and merge
+
+// when merging, 
+
+});
+
+
+
+
+/*
+
+EVERYTHING BELOW IS MY ORIGINAL ATTEMPT AT THE SOLUTION BEFORE STARTING OVER
+
+$(document).ready(function(){
+
   var sortArray = [];
-// Pull each div from inside #class and place into an array
+// Pull each div from inside .class and place into an array
   $("#original-list div").each(function() {
     sortArray.push( { 
                       value: parseInt(this.id),
@@ -25,7 +87,7 @@ $('button').on('click', function() {
 // mergeSort(sortArray);
 // console.log(testArray);
 
-  function updateList(result) {
+  function updateList(result, list) {
       $("#final-list").empty();
       for (var i = 0; i < result.length; i++) {
         $("#final-list").append("<div><p>Number " + result[i].value + "</p></div>").fadeIn('slow'); 
@@ -48,18 +110,6 @@ $('button').on('click', function() {
   {
     var result = [];
 
-$('button').on('click', function() {
-      mergePause(left, right, result);
-    });
-
-    return result;
-
-    
-  }
-
-  function mergePause(left, right, result) {
-    
-
     while (left.length && right.length) {
       if (left[0].value <= right[0].value) {
         result.push(left.shift());
@@ -81,10 +131,12 @@ $('button').on('click', function() {
       }
     }
 
-  }   
+    return result;
+    
+  }
 
 });
 
-
+*/
 
    

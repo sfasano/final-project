@@ -2,17 +2,26 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-#original-list {
+body div {
   font-size: 12px;
-  width: 250px;
+  width: 200px;
   float: left;
 }
 
+#original-list {
+
+}
+
 #final-list {
-  font-size: 12px;
-  width: 250px;
-  float: left;
   display: none;
+}
+
+#working-1 {
+
+}
+
+#working-2 {
+  
 }
 
 #split {
@@ -24,5 +33,5 @@ body {
 }
 
 #merge {
-  
+
 }
