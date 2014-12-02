@@ -4,8 +4,17 @@ body {
 
 body div {
   font-size: 12px;
-  width: 200px;
+  width: 160px;
   float: left;
+}
+
+body div div {
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 5px 10px 5px 10px;
+  width: 140px;
+  text-align: center;
 }
 
 #original-list {
@@ -21,7 +30,7 @@ body div {
 }
 
 #working-2 {
-  
+
 }
 
 #split {

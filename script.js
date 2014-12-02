@@ -1,35 +1,93 @@
 $(document).ready(function(){
 
+var originalArray = [];
+var workingArray = [];
+var onDeck = [];
+var toBeMerged = [];
+
+// create an array from the ids of the original list
+  // store that in 'originalArray'
+// Pull each div from inside #original-list and place into an array
+$("#original-list div").each(function() {
+  originalArray.push(parseInt(this.id));
+});
+  // 'workingArray' becomes 'originalArray'
+var workingArray = [originalArray, 1];
+
+updateList(workingArray, $("#working-1"));
+
+console.log(workingArray);
+
 // a function to split the array into two
 function splitArr() 
 {
+  // user splits the 'workingArray'
+  var middle = parseInt(workingArray[0].length / 2);
+  var left   = workingArray[0].slice(0, middle);
+  var right  = workingArray[0].slice(middle, workingArray[0].length);
 
+  // 'workingArray' becomes an array of the first half, with second value == 1
+  workingArray = [left, 1];
+  // adds the second half as the first element in an 'onDeck' array, with second value == 0
+  onDeck.push([right, 0]);
+
+  // animates the appearance of 'workingArray' in working-1 div
+  updateList(workingArray, $("#working-1"));
 }
 
 
 // a function to sort an array of 2 or less elements
-function sortArr()
+function sortArr(arr)
 {
-
+  if (arr[0].length == 1) {
+    return arr;
+  } else {
+    if (arr[0][1] < arr[0][0]) {
+      var temp = arr[0][1];
+      arr[0][1] = arr[0][0];
+      arr[0][0] = temp;
+    }
+    return arr;
+  }
 }
 
 
 // a function to merge two sorted arrays together
-function merge()
+function merge(left, right)
 {
+  var result = [];
 
+  while (left[0].length && right[0].length) {
+    if (left[0][0].value <= right[0][0].value) {
+      result.push(left[0].shift());
+    } else {
+      result.push(right[0].shift());
+    }
+  }
+
+  while (left[0].length) {
+    if (result.push(left[0].shift())) {
+    }
+  }
+  while (right[0].length) {
+    if (result.push(right[0].shift())) {
+    }
+  }
+
+  return result;
 }
 
+function updateList(arr, list) {
+      list.empty();
+      for (var i = 0; i < arr[0].length; i++) {
+        list.append("<div><p>Number " + arr[0][i] + "</p></div>").fadeIn('slow'); 
+      }
+  }
 
-// binding each of those functions to a button
-$('#split').on('click', splitArr());
-$('#sort').on('click', sortArr());
-$('#merge').on('click', merge());
 
 
-// create an array from the ids of the original list
-  // store that in 'originalArray'
-  // 'workingArray' becomes 'originalArray'
+
+
 
 // user splits the 'workingArray'
   // adds the second half as the first element in an 'onDeck' array, with attribute firstHalf = FALSE
@@ -50,6 +108,11 @@ $('#merge').on('click', merge());
     // .. recursive until sort and merge
 
 // when merging, 
+
+// binding each of those functions to a button
+$("#split").on("click", splitArr());
+$("#sort").on("click", sortArr(workingArray));
+$("#merge").on("click", merge(workingArray, toBeMerged));
 
 });
 
